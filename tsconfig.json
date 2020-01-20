@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "outDir": "build-web/",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "target": "es6",
+    "lib": [
+      "esnext",
+      "dom",
+    ],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "forceConsistentCasingInFileNames": true,
+    "noErrorTruncation": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitUseStrict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "importHelpers": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "camelCase": "dashes",
+          "customMatcher": "\\.(sa|sc|c)ss$"
+        }
+      }
+    ]
+  },
+  "exclude": [
+    "build*/",
+    "config/",
+    "coverage/",
+    "documentation/",
+    "lib/",
+    "!lib/ink/",
+    "node_modules/",
+    "public/",
+    "scripts/",
+    "src/worldModeling",
+    "templates/",
+    "**/*.test.*"
+  ]
+}

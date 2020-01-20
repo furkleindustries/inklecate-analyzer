@@ -1,0 +1,60 @@
+import {
+  AnalyzerConnected,
+} from '../_components/_Analyzer';
+import {
+  Uploader,
+} from '../_components/_Uploader';
+
+# Ink Analyzer
+
+<get-state>
+  {(
+    storyState,
+    { setStoryState },
+  ) => (
+    <div>
+      {storyState.loaded ?
+        null :
+        <div>
+          <div>
+            <label htmlFor="iterations">Iterations to perform</label>
+          </div>
+          <input
+            id="iterations"
+            name="iterations"
+            onChange={(e) => {
+              setStoryState({ iterations: e.target.value })
+            }}
+            type="number"
+            value={storyState.iterations}
+          />
+        </div>}
+      <br />
+      <div>
+        {storyState.loaded ?
+          null :
+          <div>
+            <label htmlFor="json">Upload Story JSON</label>
+          </div>}
+        <Uploader
+          name="json"
+          type="file"
+        >
+          {({
+            filepath,
+            text,
+          }) => (
+            <AnalyzerConnected
+              filepath={filepath}
+              inkJson={JSON.parse(text)}
+              iterationCount={Number(storyState.iterations) >= 1 ?
+                Number(storyState.iterations) :
+                1}
+              storyState={storyState}
+            />
+          )}
+        </Uploader>
+      </div>
+    </div>
+  )}
+</get-state>
